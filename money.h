@@ -7,7 +7,10 @@ class Money : public QWidget
 {
     Q_OBJECT
 public:
-    explicit Money(QWidget *parent = nullptr);
+    Money(int cur = 100 ,QString Img = ":/MainWindowScene/tops/money.png");
+    int currentMoney ;
+    QPixmap m ;
+    void paintEvent(QPaintEvent *) ;
 
 signals:
 };

@@ -1,30 +1,49 @@
 <RCC>
     <qresource prefix="/MainWindowScene">
-        <file>res/BackGround.png</file>
-        <file>res/eraser.png</file>
-        <file>res/gua.png</file>
-        <file>res/Ink.png</file>
-        <file>res/pencile.png</file>
-        <file>res/pencileCompass.png</file>
-        <file>res/pressedStartBtn.png</file>
-        <file>res/ruler.png</file>
-        <file>res/soundOpen.png</file>
-        <file>res/soundTurnoff.png</file>
-        <file>res/trianglePlate.png</file>
-        <file>res/normalStartBtn.png</file>
-        <file>res/backBtn.png</file>
-        <file>res/pressedBackBtn.png</file>
-        <file>res/testp1.png</file>
-        <file>res/normalCheck.png</file>
-        <file>res/pressedCheck.png</file>
-        <file>res/hanyongji.png</file>
+        <file>gameWindow/截屏2024-04-29 11.12.18.png</file>
+        <file>gameWindow/截屏2024-04-29 11.13.43.png</file>
+        <file>gameWindow/gameWindowBack.png</file>
         <file>Info/HInfo.png</file>
         <file>Info/huochaiInfo.png</file>
         <file>Info/queren.png</file>
         <file>Info/querenPressed.png</file>
-        <file>res/BlackBoardWith.png</file>
+        <file>Info/shaoInfo.png</file>
+        <file>Info/yangInfo.png</file>
+        <file>Info/zangInfo.png</file>
+        <file>tops/Dealted.png</file>
         <file>tops/health.png</file>
         <file>tops/money.png</file>
+        <file>tops/ToBeDealt.png</file>
         <file>tops/top.png</file>
+        <file>res/backBtn.png</file>
+        <file>res/BackGround.png</file>
+        <file>res/BlackBoardWith.png</file>
+        <file>res/eraser.png</file>
+        <file>res/gua.png</file>
+        <file>res/hanyongji.png</file>
+        <file>res/Ink.png</file>
+        <file>res/normalCheck.png</file>
+        <file>res/normalStartBtn.png</file>
+        <file>res/pencile.png</file>
+        <file>res/pencileCompass.png</file>
+        <file>res/pressedBackBtn.png</file>
+        <file>res/pressedCheck.png</file>
+        <file>res/pressedStartBtn.png</file>
+        <file>res/ruler.png</file>
+        <file>res/shao.png</file>
+        <file>res/soundOpen.png</file>
+        <file>res/soundTurnoff.png</file>
+        <file>res/trianglePlate.png</file>
+        <file>res/yang.png</file>
+        <file>res/zang.png</file>
+        <file>res/testp1.png</file>
+        <file>gameWindow/done.png</file>
+        <file>gameWindow/pressedDone.png</file>
+        <file>gameWindow/INK.png</file>
+        <file>gameWindow/pressedShop.png</file>
+        <file>gameWindow/shop.png</file>
+        <file>card/blue1card.png</file>
+        <file>card/red2card.png</file>
+        <file>card/yellow5card.png</file>
     </qresource>
 </RCC>

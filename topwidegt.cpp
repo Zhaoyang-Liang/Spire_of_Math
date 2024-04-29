@@ -2,20 +2,25 @@
 #include <QPainter>
 
 
-//
-
-TopWidegt::TopWidegt(QWidget *parent): QWidget{parent}
+TopWidegt::TopWidegt(Player * p , Heart * h)
 {
-    setFixedSize(70,720);
+
+    //fixsize
+    setFixedSize(1080,150);
+    this->m_heart = h ;
+    m_player = p ;
 
 
 
 
+
+
+    //血条的位置：
+    h->setParent(this);
+    h->move(220,10);
 
 
 }
-
-
 
 
 

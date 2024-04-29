@@ -2,12 +2,18 @@
 #define STATIONERYWIDGET_H
 
 #include <QWidget>
+#include "player.h"
+#include <QLabel>
 
 class StationeryWidget : public QWidget
 {
     Q_OBJECT
 public:
-    explicit StationeryWidget(QWidget *parent = nullptr);
+
+    StationeryWidget(Player * p) ;
+
+    void paintEvent(QPaintEvent *) ;
+    Player * m_p ;
 
 signals:
 };

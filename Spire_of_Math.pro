@@ -9,27 +9,37 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    boughtcardsset.cpp \
+    card.cpp \
     checkcharacter.cpp \
     choosecharacterscene.cpp \
     gamewindow.cpp \
+    handcards.cpp \
     heart.cpp \
+    ink.cpp \
     main.cpp \
     mainwindow.cpp \
     money.cpp \
     mypushbtn.cpp \
     player.cpp \
+    shopscene.cpp \
     stationerywidget.cpp \
     topwidegt.cpp
 
 HEADERS += \
+    boughtcardsset.h \
+    card.h \
     checkcharacter.h \
     choosecharacterscene.h \
     gamewindow.h \
+    handcards.h \
     heart.h \
+    ink.h \
     mainwindow.h \
     money.h \
     mypushbtn.h \
     player.h \
+    shopscene.h \
     stationerywidget.h \
     topwidegt.h
 
