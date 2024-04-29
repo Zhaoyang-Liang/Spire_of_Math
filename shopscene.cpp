@@ -23,12 +23,6 @@ ShopScene::ShopScene(Player * p , TopWidegt * tp )
 
 
 
-
-
-
-
-
-
     //返回按钮
     MyPushBtn * backBtn = new MyPushBtn(":/MainWindowScene/res/backBtn.png",":/MainWindowScene/res/pressedBackBtn.png",200,50);
     backBtn->setParent(this);
