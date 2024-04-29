@@ -1,0 +1,30 @@
+<RCC>
+    <qresource prefix="/MainWindowScene">
+        <file>res/BackGround.png</file>
+        <file>res/eraser.png</file>
+        <file>res/gua.png</file>
+        <file>res/Ink.png</file>
+        <file>res/pencile.png</file>
+        <file>res/pencileCompass.png</file>
+        <file>res/pressedStartBtn.png</file>
+        <file>res/ruler.png</file>
+        <file>res/soundOpen.png</file>
+        <file>res/soundTurnoff.png</file>
+        <file>res/trianglePlate.png</file>
+        <file>res/normalStartBtn.png</file>
+        <file>res/backBtn.png</file>
+        <file>res/pressedBackBtn.png</file>
+        <file>res/testp1.png</file>
+        <file>res/normalCheck.png</file>
+        <file>res/pressedCheck.png</file>
+        <file>res/hanyongji.png</file>
+        <file>Info/HInfo.png</file>
+        <file>Info/huochaiInfo.png</file>
+        <file>Info/queren.png</file>
+        <file>Info/querenPressed.png</file>
+        <file>res/BlackBoardWith.png</file>
+        <file>tops/health.png</file>
+        <file>tops/money.png</file>
+        <file>tops/top.png</file>
+    </qresource>
+</RCC>
