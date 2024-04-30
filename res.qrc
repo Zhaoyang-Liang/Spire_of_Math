@@ -45,5 +45,16 @@
         <file>card/blue1card.png</file>
         <file>card/red2card.png</file>
         <file>card/yellow5card.png</file>
+        <file>card/derive.png</file>
+        <file>card/Ink.png</file>
+        <file>card/laser.png</file>
+        <file>card/plus1.png</file>
+        <file>card/plus4.png</file>
+        <file>card/recover.png</file>
+        <file>card/shopBack.png</file>
+        <file>card/buyBtn1.png</file>
+        <file>card/buyBtn2.png</file>
+        <file>card/pressedBuyBtn1.png</file>
+        <file>card/pressedBuyBtn2.png</file>
     </qresource>
 </RCC>

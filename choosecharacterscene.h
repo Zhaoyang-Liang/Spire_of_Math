@@ -12,6 +12,13 @@ public:
     //重写绘图事件
     void paintEvent(QPaintEvent *) ;
 
+
+
+
+
+
+
+
     void shili() ;
 
 signals:

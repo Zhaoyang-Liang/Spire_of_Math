@@ -2,11 +2,25 @@
 #include <QPainter>
 
 
-Card::Card(int Rarity,QString type)
+Card::Card(int Rarity,QString type) //构造函数
 {
     m_type = type ;
     m_rarity = Rarity ;
-    setFixedSize(200,360);
+    setFixedSize(260,395);
+
+    if(m_rarity == 1)
+    {
+        m_price = 10 ;
+    }
+    else if(m_rarity == 2)
+    {
+        m_price = 30 ;
+    }
+    else
+    {
+        m_price = 70 ;
+    }
+
 }
 
 
@@ -21,7 +35,6 @@ void Card::setClick(bool b)
     {
         move(this->x(),this->y()+30);
     }
-
     update();
 }
 
@@ -44,19 +57,9 @@ void Card::paintEvent(QPaintEvent *event)
     //定义一个图像用来绘到背景
     QPixmap thisPix(width(),height());
     thisPix.fill(Qt::transparent);//透明填充
+    thisPix.load(this->m_type) ;
 
-    if(this->m_rarity == 1)
-    {
-        thisPix.load(":/MainWindowScene/card/blue1card.png") ;
-    }
-    else if(this->m_rarity == 2)
-    {
-        thisPix.load(":/MainWindowScene/card/red2card.png") ;
-    }
-    else if(this->m_rarity == 5)
-    {
-        thisPix.load(":/MainWindowScene/card/yellow5card.png") ;
-    }
+    painter.drawPixmap(0,0,this->width()*0.7,this->height()*0.7,thisPix);
 
 
     QPainter painter2;//重新定义一个画板为 thisPix
@@ -72,8 +75,8 @@ void Card::paintEvent(QPaintEvent *event)
 
     // if(isSelected)//如果选中了，上面添加一层透明度为100的颜色
     // {
-    //     painter2.setBrush(QColor(44,44,44,100));
-    //     painter2.drawRoundedRect(20,20,160,160,);
+    //     // painter2.setBrush(QColor(44,44,44,100));
+    //     // painter2.drawRoundedRect(20,20,160,160,);
     // }
     // painter2.end();//画板结束
 

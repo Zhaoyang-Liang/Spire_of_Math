@@ -9,9 +9,9 @@
 #include "money.h"
 #include "ink.h"
 #include "shopscene.h"
-
-
-
+#include <QVector>
+#include "card.h"
+#include "money.h"
 
 
 

@@ -9,7 +9,6 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-    boughtcardsset.cpp \
     card.cpp \
     checkcharacter.cpp \
     choosecharacterscene.cpp \
@@ -27,7 +26,6 @@ SOURCES += \
     topwidegt.cpp
 
 HEADERS += \
-    boughtcardsset.h \
     card.h \
     checkcharacter.h \
     choosecharacterscene.h \

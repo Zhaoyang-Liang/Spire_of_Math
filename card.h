@@ -16,23 +16,20 @@ public:
         Rare = 5
     };
 
-
-
-    explicit Card(int Rarity,QString type );
-
+    explicit Card(int Rarity,QString type);
     bool isClick = false ;
     bool isSelected = false ;
     void setClick(bool b);
-
     void paintEvent(QPaintEvent *event);
     void setSelected(bool b) ;
 
     int m_rarity ; // 1 ， 2 ， 5 ；！！！
     QString m_type ;
-
+    int m_price ; // 10 , 30 , 70 ; // 由m_rarity决定
 
 
 signals:
+
 };
 
 #endif // CARD_H

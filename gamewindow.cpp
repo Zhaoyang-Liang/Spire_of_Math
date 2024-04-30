@@ -5,7 +5,7 @@
 #include "heart.h"
 #include "topwidegt.h"
 #include "shopscene.h"
-
+#include "money.h"
 
 
 
@@ -75,8 +75,10 @@ GameWindow::GameWindow(Player * p,TopWidegt * tp,StationeryWidget * st)
     m_shop->setParent(this);
     m_shop->move(790,0);
 
+
     //创建SHopScene
-    m_shopScene = new ShopScene(this->m_player,this->m_topWidget,money);
+    m_shopScene = new ShopScene( this->m_player, this->m_topWidget, this->money );
+
     connect(m_shop,&MyPushBtn::clicked,this,[=](){
         this->hide();
         m_topWidget->setParent(m_shopScene);
