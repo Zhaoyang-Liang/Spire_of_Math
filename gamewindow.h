@@ -31,7 +31,7 @@ public:
     TopWidegt * m_topWidget ;
     StationeryWidget * m_stiWidget;
     MyPushBtn * m_done      ;
-    Money * money = new Money ;
+    Money money ;
     Ink * m_ink = new Ink(this) ;
     int p2                  ;
     Player * m_player2      ;

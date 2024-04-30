@@ -2,6 +2,9 @@
 #define MONEY_H
 
 #include <QWidget>
+#include <QLabel>
+
+
 
 class Money : public QWidget
 {
@@ -12,7 +15,13 @@ public:
     QPixmap m ;
     void paintEvent(QPaintEvent *) ;
 
+    QLabel * l = new QLabel(this) ;
+
+    void cl();
+
+    void reFreshImg(int cur) ;
 signals:
 };
+
 
 #endif // MONEY_H

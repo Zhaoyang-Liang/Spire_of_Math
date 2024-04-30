@@ -18,11 +18,6 @@ public:
 
 
 
-
-
-
-
-
     explicit Card(int Rarity,QString type );
 
     bool isClick = false ;

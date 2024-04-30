@@ -1,5 +1,7 @@
 #include "card.h"
 #include <QPainter>
+
+
 Card::Card(int Rarity,QString type)
 {
     m_type = type ;
@@ -39,12 +41,9 @@ void Card::paintEvent(QPaintEvent *event)
     painter.setRenderHints(QPainter::Antialiasing|QPainter::SmoothPixmapTransform);
     //透明覆盖
     painter.fillRect(this->rect(), QBrush(Qt::transparent));
-
     //定义一个图像用来绘到背景
     QPixmap thisPix(width(),height());
-
     thisPix.fill(Qt::transparent);//透明填充
-
 
     if(this->m_rarity == 1)
     {
@@ -65,11 +64,11 @@ void Card::paintEvent(QPaintEvent *event)
     //设置去毛边 高质量模式
     painter2.setRenderHints(QPainter::Antialiasing|QPainter::SmoothPixmapTransform);
 
+    //_______________________________________________________________________________________
     QPixmap pix2 ;
     pix2.load(this->m_type) ;
-
-    painter2.drawPixmap(20,20,160,160,pix2);
-
+    painter2.drawPixmap(20,20,160,160,pix2) ;
+    //______________________________________________________________________________________
 
     // if(isSelected)//如果选中了，上面添加一层透明度为100的颜色
     // {

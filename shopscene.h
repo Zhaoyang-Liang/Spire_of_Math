@@ -7,20 +7,18 @@
 #include "money.h"
 
 
+
 class ShopScene : public QMainWindow
 {
     Q_OBJECT
 public:
 
 
-    ShopScene(Player * p , TopWidegt * tp );
-
+    ShopScene(Player * p , TopWidegt * tp ,Money & m);
     void paintEvent(QPaintEvent *) ;
+    TopWidegt * m_top ;
+    Player * m_p ;
 
-
-    // TopWidegt * m_top ;
-
-    // Player * m_p ;
 
 
 

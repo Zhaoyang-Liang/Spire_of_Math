@@ -1,27 +1,27 @@
 #include "shopscene.h"
 #include "mypushbtn.h"
 #include <QPainter>
-ShopScene::ShopScene(Player * p , TopWidegt * tp )
+
+
+
+
+
+
+
+ShopScene::ShopScene(Player * p , TopWidegt * tp , Money & m)
 {
 
     this->setFixedSize(1080,720);
     this->setWindowTitle("商店界面");
 
-    // m_p = p     ;
-    // m_top = tp  ;
+    //到时候按下购买按钮触发类似指令即可
+    m.currentMoney -= 5 ;
+    m.cl();
+    m.reFreshImg(m.currentMoney);
 
 
-    //tp->setParent(this);
-
-    // money->currentMoney -= 5 ;
-    // money->update();
-    // money->setParent(this);
-
-
-
-
-
-
+    m_p = p  ;
+    m_top = tp  ;
 
     //返回按钮
     MyPushBtn * backBtn = new MyPushBtn(":/MainWindowScene/res/backBtn.png",":/MainWindowScene/res/pressedBackBtn.png",200,50);

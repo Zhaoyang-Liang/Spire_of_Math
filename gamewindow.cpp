@@ -6,6 +6,9 @@
 #include "topwidegt.h"
 #include "shopscene.h"
 
+
+
+
 // GameWindow::GameWindow(QWidget *parent): QMainWindow{parent}
 // {
 
@@ -29,10 +32,14 @@ GameWindow::GameWindow(Player * p,TopWidegt * tp,StationeryWidget * st)
     m_done->setParent(this);
     m_done->move(760,400);
 
-    money->setParent(this);
-    money->move(500,10);
+    money.setParent(this);
+
+    money.move(500,10);
 
     m_ink->move(980,360) ;
+
+    m_ink->reFreshImg(3);
+   // m_ink->cl();
 
     QMenuBar * bar = menuBar() ;
     setMenuBar(bar);
@@ -51,6 +58,7 @@ GameWindow::GameWindow(Player * p,TopWidegt * tp,StationeryWidget * st)
     MyPushBtn * backBtn = new MyPushBtn(":/MainWindowScene/res/backBtn.png",":/MainWindowScene/res/pressedBackBtn.png",200,50);
     backBtn->setParent(this);
     backBtn->move(this->width() - backBtn->width() , 0);
+
     connect(backBtn, &MyPushBtn::clicked , this , [=](){
         emit this->gameWindowBack(); // 发送
     });
@@ -60,7 +68,7 @@ GameWindow::GameWindow(Player * p,TopWidegt * tp,StationeryWidget * st)
     this->m_player2 = initPlayer( p->getPlayer() ) ;
     Heart * h2 = new Heart(m_player2) ;
     h2->setParent(this);
-    h2->move(735,90);
+    h2->move(775,90);
 
 
     m_shop = new MyPushBtn(":/MainWindowScene/gameWindow/shop.png",":/MainWindowScene/gameWindow/pressedShop.png",50,50);
@@ -68,9 +76,11 @@ GameWindow::GameWindow(Player * p,TopWidegt * tp,StationeryWidget * st)
     m_shop->move(790,0);
 
     //创建SHopScene
-    m_shopScene = new ShopScene(this->m_player,this->m_topWidget);
+    m_shopScene = new ShopScene(this->m_player,this->m_topWidget,money);
     connect(m_shop,&MyPushBtn::clicked,this,[=](){
         this->hide();
+        m_topWidget->setParent(m_shopScene);
+        money.setParent(m_shopScene);
         m_shopScene->setGeometry(this->geometry() );
         m_shopScene->show();
     });
@@ -78,7 +88,13 @@ GameWindow::GameWindow(Player * p,TopWidegt * tp,StationeryWidget * st)
     connect(m_shopScene,&ShopScene::ShopSceneBack,this,[=](){
         m_shopScene->hide();
         //设置相同位置
-        this->setGeometry(m_shopScene->geometry()   );
+        backBtn->move(this->width() - backBtn->width() , 0);
+
+        m_topWidget->setParent(this);
+        m_shop->raise(); // 重新置于顶层上方
+        backBtn->raise();
+        money.setParent(this);
+        this->setGeometry(m_shopScene->geometry());
         this->show();
     });
 
@@ -104,11 +120,11 @@ void GameWindow::paintEvent(QPaintEvent *)//也就是我需要保证每个图片
 
     pix = m_player->m_playerImg;
     pix = pix.scaled(pix.width() * 0.9 , pix.height() * 0.9 , Qt::KeepAspectRatio , Qt::SmoothTransformation) ;
-    painter.drawPixmap(110,140,pix);
+    painter.drawPixmap(80,140,pix);
 
     pix = m_player2->m_playerImg;
     pix = pix.scaled(pix.width() * 0.66 , pix.height() * 0.66 , Qt::KeepAspectRatio , Qt::SmoothTransformation) ;
-    painter.drawPixmap(750,130,pix);
+    painter.drawPixmap(790,130,pix);
 
 }
 
