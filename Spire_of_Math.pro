@@ -13,6 +13,7 @@ SOURCES += \
     card.cpp \
     checkcharacter.cpp \
     choosecharacterscene.cpp \
+    choosecharacterwindow2.cpp \
     gamewindow.cpp \
     handcards.cpp \
     handcardsshowscene.cpp \
@@ -34,6 +35,7 @@ HEADERS += \
     card.h \
     checkcharacter.h \
     choosecharacterscene.h \
+    choosecharacterwindow2.h \
     gamewindow.h \
     handcards.h \
     handcardsshowscene.h \

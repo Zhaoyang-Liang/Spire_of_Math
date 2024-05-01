@@ -49,7 +49,7 @@ void Player::paintEvent(QPaintEvent *)//也就是我需要保证每个图片的�
         flag1  = 1 ;
         m_playerImg = m_playerImg.scaled(m_playerImg.width() *0.7 , m_playerImg.height() * 0.7 , Qt::KeepAspectRatio , Qt::SmoothTransformation ) ;
     }
-    painter.drawRect(0, 0, m_playerImg.width(), m_playerImg.height() );
+    painter.drawRect(0,0, m_playerImg.width(), m_playerImg.height() );
     painter.drawPixmap(0,0,m_playerImg);
 
 
@@ -57,5 +57,5 @@ void Player::paintEvent(QPaintEvent *)//也就是我需要保证每个图片的�
 
 int Player::getPlayer()
 {
-    return QRandomGenerator::global()->bounded(1,5) ;
+    return QRandomGenerator::global()->bounded(1,11) ;
 }

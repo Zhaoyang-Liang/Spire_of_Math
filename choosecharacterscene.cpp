@@ -6,32 +6,12 @@
 #include "player.h"
 #include <QTimer>
 #include "checkcharacter.h"
+#include "choosecharacterwindow2.h"
 
 ChooseCharacterScene::ChooseCharacterScene(QWidget *parent): QMainWindow{parent}
 {
     this->setFixedSize(1080,720);
     this->setWindowTitle("选择角色");
-
-    QMenuBar * bar = menuBar() ;
-    setMenuBar(bar);
-    //创建开始菜单 添加startMenu
-    QMenu * startMenu = bar->addMenu("开始") ;
-    //添加quitAction
-    QAction * quitAction = startMenu->addAction("退出") ;
-
-    //connect退出
-    connect(quitAction,&QAction::triggered,this,[=](){
-        this->close();
-    });
-
-
-    //返回按钮
-    MyPushBtn * backBtn = new MyPushBtn(":/MainWindowScene/res/backBtn.png",":/MainWindowScene/res/pressedBackBtn.png",200,50);
-    backBtn->setParent(this);
-    backBtn->move(this->width() - backBtn->width() , this->height() - backBtn->height());
-    connect(backBtn, &MyPushBtn::clicked , this , [=](){
-        emit this->chooseSceneBack(); // 发送
-    });
 
 
     //实例化plyaer对象————————————————————————————————————————————————————————————
@@ -39,6 +19,38 @@ ChooseCharacterScene::ChooseCharacterScene(QWidget *parent): QMainWindow{parent}
 
 
     //——————————————————————————————————————————————————————————————————————————
+
+    MyPushBtn * nextWindow = new MyPushBtn(":/MainWindowScene/stationery/nextBtn.png",":/MainWindowScene/stationery/pressedNext.png",70,70);
+    nextWindow->setParent(this);
+    nextWindow->move(1000,320);
+
+    ChooseCharacterWindow2 * win = new ChooseCharacterWindow2;
+
+    connect(nextWindow,&MyPushBtn::clicked,this,[=](){
+        this->hide();
+        win->setGeometry(this->geometry() );
+        win->show();
+    });
+
+    connect(win,&ChooseCharacterWindow2::back,this,[=](){
+        win->hide();
+        this->setGeometry(win->geometry() );
+        this->show();
+    });
+
+
+    //     connect(yes,&MyPushBtn::clicked,this,[=](){
+    //         this->hide();
+    //         gameWindow->setGeometry(this->geometry() );
+    //         gameWindow->show();
+    //     });
+
+    // connect(gameWindow,&GameWindow::gameWindowBack,this,[=](){
+    //     gameWindow->hide();
+    //     //设置相同位置
+    //     this->setGeometry(gameWindow->geometry()   );
+    //     this->show();
+    // });
 
 
 
@@ -166,6 +178,110 @@ void ChooseCharacterScene::shili( )
         });
 
 
+
+        static Player * p5 = new Player(":/MainWindowScene/pl/yang.png",":/MainWindowScene/Info/yanggeInfo.png",":/MainWindowScene/stationery/xiaoyuan.png",1,1000) ;
+        p5->setParent(this);
+        p5->move(50,400);
+        p5->num = 5 ;
+
+        static CheckCharacter * checkScene5 = new CheckCharacter(p5) ; // 这里传入this指针，给check 的Player 参数；
+
+        connect( p5 , &Player::checkSignal , this ,[=](){
+
+            //延时，等待动画执行完毕
+            QTimer::singleShot(100,this,[=](){ //执行的函数体
+                //跳转到选择界面
+                this->hide();
+                checkScene5->setGeometry(this->geometry());
+                checkScene5->show();
+            });
+        }) ;
+
+        connect(checkScene5 , &CheckCharacter::checkSceneBack , this , [=](){
+
+            checkScene5->hide();
+            //设置相同位置
+            this->setGeometry(checkScene5->geometry());
+            this->show();
+        });
+
+
+        static Player * p6 = new Player(":/MainWindowScene/pl/dage.png",":/MainWindowScene/Info/dageInfo.png",":/MainWindowScene/stationery/qian.png",70,70) ;
+        p6->setParent(this);
+        p6->move(300,400);
+        p6->num = 6 ;
+
+        static CheckCharacter * checkScene6 = new CheckCharacter(p6) ; // 这里传入this指针，给check 的Player 参数；
+
+        connect( p6 , &Player::checkSignal , this ,[=](){
+
+            //延时，等待动画执行完毕
+            QTimer::singleShot(100,this,[=](){ //执行的函数体
+                //跳转到选择界面
+                this->hide();
+                checkScene6->setGeometry(this->geometry());
+                checkScene6->show();
+            });
+        }) ;
+
+        connect(checkScene6 , &CheckCharacter::checkSceneBack , this , [=](){
+            checkScene6->hide();
+            //设置相同位置
+            this->setGeometry(checkScene6->geometry());
+            this->show();
+        });
+
+
+
+        static Player * p7 = new Player(":/MainWindowScene/pl/yuyang.png",":/MainWindowScene/Info/yuyangInfo.png",":/MainWindowScene/stationery/pencileCase.png",70,70) ;
+        p7->setParent(this);
+        p7->move(550,400);
+        p7->num = 7 ;
+
+        static CheckCharacter * checkScene7 = new CheckCharacter(p7) ; // 这里传入this指针，给check 的Player 参数；
+
+        connect( p7 , &Player::checkSignal , this ,[=](){
+
+            //延时，等待动画执行完毕
+            QTimer::singleShot(100,this,[=](){ //执行的函数体
+                //跳转到选择界面
+                this->hide();
+                checkScene7->setGeometry(this->geometry());
+                checkScene7->show();
+            });
+        }) ;
+
+        connect(checkScene7 , &CheckCharacter::checkSceneBack , this , [=](){
+            checkScene7->hide();
+            //设置相同位置
+            this->setGeometry(checkScene7->geometry());
+            this->show();
+        });
+
+        static Player * p8 = new Player(":/MainWindowScene/pl/chenyulu.png",":/MainWindowScene/Info/chenyuluInfo.png",":/MainWindowScene/res/eraser.png",100,10) ;
+        p8->setParent(this);
+        p8->move(800,400);
+        p8->num = 8 ;
+
+        static CheckCharacter * checkScene8 = new CheckCharacter(p8) ; // 这里传入this指针，给check 的Player 参数；
+
+        connect( p8 , &Player::checkSignal , this ,[=](){
+
+            //延时，等待动画执行完毕
+            QTimer::singleShot(100,this,[=](){ //执行的函数体
+                //跳转到选择界面
+                this->hide();
+                checkScene8->setGeometry(this->geometry());
+                checkScene8->show();
+            });
+        }) ;
+
+        connect(checkScene8 , &CheckCharacter::checkSceneBack , this , [=](){
+            checkScene8->hide();
+            //设置相同位置
+            this->setGeometry(checkScene8->geometry());
+            this->show();
+        });
 
 
 

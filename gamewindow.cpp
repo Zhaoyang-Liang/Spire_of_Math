@@ -208,6 +208,32 @@ Player* GameWindow::initPlayer(int x)
     {
         return new Player(":/MainWindowScene/res/zang.png",":/MainWindowScene/Info/zangInfo.png",":/MainWindowScene/res/pencileCompass.png",10,100) ;
     }
+    else if(x == 5)
+    {
+        return new Player(":/MainWindowScene/pl/yang.png",":/MainWindowScene/Info/yanggeInfo.png",":/MainWindowScene/stationery/xiaoyuan.png",1,1000) ;
+    }
+    else if(x == 6)
+    {
+        return  new Player(":/MainWindowScene/pl/dage.png",":/MainWindowScene/Info/dageInfo.png",":/MainWindowScene/stationery/qian.png",70,70) ;
+    }
+    else if(x == 7)
+    {
+        return new Player(":/MainWindowScene/pl/yuyang.png",":/MainWindowScene/Info/yuyangInfo.png",":/MainWindowScene/stationery/pencileCase.png",70,70) ;
+    }
+    else if(x == 8)
+    {
+        return new Player(":/MainWindowScene/pl/chenyulu.png",":/MainWindowScene/Info/chenyuluInfo.png",":/MainWindowScene/res/eraser.png",100,10) ;
+    }
+    else if(x == 9)
+    {
+        return new Player(":/MainWindowScene/pl/tangjiafeng.png",":/MainWindowScene/Info/tangjiafengInfo.png",":/MainWindowScene/stationery/tangjiafeng.png",700,50) ;
+    }
+    else if(x == 10)
+    {
+        return  new Player(":/MainWindowScene/pl/songhao.png",":/MainWindowScene/Info/tangjiafengInfo.png",":/MainWindowScene/stationery/songhao.png",700,50) ;
+    }
+
+
 }
 
 

@@ -1,7 +1,6 @@
 #include "checkcharacter.h"
 #include "player.h"
 #include "mypushbtn.h"
-
 #include <QPainter>
 #include "gamewindow.h"
 //是一个QMianWindow
@@ -10,7 +9,6 @@
 // {
 
 // }
-
 
 CheckCharacter::CheckCharacter(Player * p)
 {
@@ -22,7 +20,6 @@ CheckCharacter::CheckCharacter(Player * p)
    //GameWIndow构造！！！
     gameWindow  = new GameWindow(p,tp,st) ;
 
-
     //返回按钮
     MyPushBtn * backBtn = new MyPushBtn(":/MainWindowScene/res/backBtn.png",":/MainWindowScene/res/pressedBackBtn.png",200,50);
     backBtn->setParent(this);
@@ -31,7 +28,6 @@ CheckCharacter::CheckCharacter(Player * p)
     connect(backBtn, &MyPushBtn::clicked , this , [=](){
         emit this->checkSceneBack(); // 发送
     });
-
 
     m_playerImg = p->m_playerImg ;
     m_Info = p->m_Info ;
@@ -42,7 +38,6 @@ CheckCharacter::CheckCharacter(Player * p)
     yes->move(400,550);
 
     //初始化gameWindow,下一步链接确认按钮
-
 
     connect(yes,&MyPushBtn::clicked,this,[=](){
         this->hide();

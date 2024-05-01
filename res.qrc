@@ -63,5 +63,29 @@
         <file>gameWindow/recoverIcon.png</file>
         <file>gameWindow/Defeat.png</file>
         <file>gameWindow/Victory.png</file>
+        <file>pl/chenyulu.png</file>
+        <file>pl/dage.png</file>
+        <file>pl/tangjiafeng.png</file>
+        <file>pl/yang.png</file>
+        <file>pl/yuyang.png</file>
+        <file>pl/zhu.png</file>
+        <file>Info/chenyuluInfo.png</file>
+        <file>Info/dageInfo.png</file>
+        <file>Info/songhaoInfo.png</file>
+        <file>Info/tangjiafengInfo.png</file>
+        <file>Info/yanggeInfo.png</file>
+        <file>Info/yuyangInfo.png</file>
+        <file>Info/zhuInfo.png</file>
+        <file>stationery/kuake.png</file>
+        <file>stationery/songhao.png</file>
+        <file>stationery/tangjiafeng.png</file>
+        <file>stationery/xiaoyuan.png</file>
+        <file>stationery/qian.png</file>
+        <file>stationery/pencileCase.png</file>
+        <file>stationery/nextBtn.png</file>
+        <file>stationery/pressedNext.png</file>
+        <file>stationery/nextBtn2.png</file>
+        <file>stationery/pressedNext2.png</file>
+        <file>pl/songhao.png</file>
     </qresource>
 </RCC>
