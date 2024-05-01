@@ -2,6 +2,7 @@
 #define CARD_H
 
 #include <QWidget>
+#include "mypushbtn.h"
 
 class Card : public QWidget
 {
@@ -9,26 +10,24 @@ class Card : public QWidget
 public:
 
 
-    enum Rarity
-    {
-        Commen  =  1 ,
-        Uncommen = 2,
-        Rare = 5
-    };
-
-    explicit Card(int Rarity,QString type);
+    explicit Card(int bianHao,QString type);
     bool isClick = false ;
     bool isSelected = false ;
     void setClick(bool b);
     void paintEvent(QPaintEvent *event);
     void setSelected(bool b) ;
 
-    int m_rarity ; // 1 ， 2 ， 5 ；！！！
-    QString m_type ;
-    int m_price ; // 10 , 30 , 70 ; // 由m_rarity决定
 
+    bool flag  ;
+    QString m_type ;
+    int m_rarity;
+    void mousePressEvent(QMouseEvent *);
+    int inkPrice;
+    int m_bianHao ;
 
 signals:
+    void chuPai();
+    void xinxi();
 
 };
 

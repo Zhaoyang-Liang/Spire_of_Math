@@ -7,6 +7,7 @@
 #include "player.h"
 #include "mypushbtn.h"
 
+
 class TopWidegt : public QWidget
 {
     Q_OBJECT

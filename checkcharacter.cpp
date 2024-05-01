@@ -1,6 +1,7 @@
 #include "checkcharacter.h"
 #include "player.h"
 #include "mypushbtn.h"
+
 #include <QPainter>
 #include "gamewindow.h"
 //是一个QMianWindow

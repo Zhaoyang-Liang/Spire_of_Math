@@ -2,26 +2,59 @@
 #include <QPainter>
 
 
-Card::Card(int Rarity,QString type) //构造函数
+Card::Card(int bianHao,QString type) //构造函数
 {
     m_type = type ;
-    m_rarity = Rarity ;
+    m_bianHao = bianHao ;
     setFixedSize(260,395);
+    flag = 0;
 
-    if(m_rarity == 1)
+    if(bianHao ==1 )
     {
-        m_price = 10 ;
+        inkPrice = 1;
     }
-    else if(m_rarity == 2)
+    else if(bianHao ==2 )
     {
-        m_price = 30 ;
+        inkPrice = 1;
+    }
+    else if(bianHao ==3 )
+    {
+        inkPrice = 1;
+    }
+    else if(bianHao ==4 )
+    {
+        inkPrice = 2;
+    }
+    else if(bianHao ==5 )
+    {
+        inkPrice = 2;
+    }
+    else if(bianHao ==6 )
+    {
+        inkPrice = 4;
+    }
+
+
+
+}
+
+void Card::mousePressEvent(QMouseEvent *)
+{
+    if(flag == false)
+    {
+        this->move(this->x(),this->y()-40);
+        flag = true ;
+
+
     }
     else
     {
-        m_price = 70 ;
-    }
+        this->move(this->x(),this->y()+40);
+        flag = false ;
 
+    }
 }
+
 
 
 void Card::setClick(bool b)
@@ -62,15 +95,15 @@ void Card::paintEvent(QPaintEvent *event)
     painter.drawPixmap(0,0,this->width()*0.7,this->height()*0.7,thisPix);
 
 
-    QPainter painter2;//重新定义一个画板为 thisPix
-    painter2.begin(&thisPix);//画板开始
-    //设置去毛边 高质量模式
-    painter2.setRenderHints(QPainter::Antialiasing|QPainter::SmoothPixmapTransform);
+    // QPainter painter2;//重新定义一个画板为 thisPix
+    // painter2.begin(&thisPix);//画板开始
+    // //设置去毛边 高质量模式
+    // painter2.setRenderHints(QPainter::Antialiasing|QPainter::SmoothPixmapTransform);
 
-    //_______________________________________________________________________________________
-    QPixmap pix2 ;
-    pix2.load(this->m_type) ;
-    painter2.drawPixmap(20,20,160,160,pix2) ;
+    // //_______________________________________________________________________________________
+    // QPixmap pix2 ;
+    // pix2.load(this->m_type) ;
+    // painter2.drawPixmap(20,20,160,160,pix2) ;
     //______________________________________________________________________________________
 
     // if(isSelected)//如果选中了，上面添加一层透明度为100的颜色

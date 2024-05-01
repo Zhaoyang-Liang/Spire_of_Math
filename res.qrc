@@ -1,7 +1,5 @@
 <RCC>
     <qresource prefix="/MainWindowScene">
-        <file>gameWindow/截屏2024-04-29 11.12.18.png</file>
-        <file>gameWindow/截屏2024-04-29 11.13.43.png</file>
         <file>gameWindow/gameWindowBack.png</file>
         <file>Info/HInfo.png</file>
         <file>Info/huochaiInfo.png</file>
@@ -56,5 +54,14 @@
         <file>card/buyBtn2.png</file>
         <file>card/pressedBuyBtn1.png</file>
         <file>card/pressedBuyBtn2.png</file>
+        <file>tops/pressedToBe.png</file>
+        <file>card/pressedre.png</file>
+        <file>card/refresh.png</file>
+        <file>card/dealt.png</file>
+        <file>card/pressedDealt.png</file>
+        <file>gameWindow/attackValue.png</file>
+        <file>gameWindow/recoverIcon.png</file>
+        <file>gameWindow/Defeat.png</file>
+        <file>gameWindow/Victory.png</file>
     </qresource>
 </RCC>

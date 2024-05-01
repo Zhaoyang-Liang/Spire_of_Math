@@ -22,6 +22,8 @@ public:
     void reFreshImg(int cur) ;
 
 
+
+
 signals:
 };
 

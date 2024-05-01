@@ -10,13 +10,14 @@
 #include "card.h"
 
 
+
 class ShopScene : public QMainWindow
 {
     Q_OBJECT
 public:
 
 
-    ShopScene(Player * p , TopWidegt * tp ,Money & m);
+    ShopScene(Player * p , TopWidegt * tp ,Money & m , QVector<Card*> & v );
     void paintEvent(QPaintEvent *) ;
     TopWidegt * m_top ;
     Player * m_p ;
@@ -24,7 +25,8 @@ public:
     Money * m_m ;
 
     QVector<Card *> allCards;
-    QVector<Card *> haveCards ; //买下来的
+    //买下来的
+    QVector<Card*> * haveCards ;
 
 
     Card* cardInk;
@@ -35,13 +37,16 @@ public:
     Card* cardDerive ;
 
 
+
     MyPushBtn* buy1 ;
     MyPushBtn* buy2 ;
+
 
     void showCard1(int x);
     void showCard2(int x);
     void shili() ;
     int randomGetCard () ;
+
 
 
 signals:

@@ -11,8 +11,12 @@ public:
     void paintEvent(QPaintEvent *);
 
     Player * m_p ;
+    QLabel * l;
     double rate ;
 
+    void cl() ;
+
+    void reFreshImg(int c,int a) ;
 
 
 

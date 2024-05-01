@@ -14,7 +14,6 @@ TopWidegt::TopWidegt(Player * p , Heart * h)
 
 
 
-
     //血条的位置：
     h->setParent(this);
     h->move(220,10);

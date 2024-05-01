@@ -13,7 +13,7 @@ Player::Player(QString playerImg ,QString Info, QString stationery ,int life , i
 
     m_Info.load(Info) ;
     m_currentLife = m_life = life ;
-    m_currentLife -= 5;
+    // m_currentLife -= 5;
     m_attack = attack ;
     m_playerImg.load(playerImg)   ;
     m_playerAttackImg.load(playerAttackImg) ;

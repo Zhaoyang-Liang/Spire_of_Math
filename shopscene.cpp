@@ -2,9 +2,11 @@
 #include "mypushbtn.h"
 #include <QPainter>
 #include <QRandomGenerator>
+#include <QVector>
 
+QVector<Card *> haveCards;
 
-ShopScene::ShopScene(Player * p , TopWidegt * tp , Money & m)
+ShopScene::ShopScene(Player * p , TopWidegt * tp , Money & m , QVector<Card*> & v )
 {
 
     this->setFixedSize(1080,720);
@@ -13,10 +15,18 @@ ShopScene::ShopScene(Player * p , TopWidegt * tp , Money & m)
     //到时候按下购买按钮触发类似指令即可
     m_m = &m ;
 
-
     m_m->cl();
     m_m->reFreshImg(m.currentMoney);
 
+    haveCards = &v ;
+
+    // reFreshBtn = new MyPushBtn(":/MainWindowScene/card/refresh.png",":/MainWindowScene/card/pressedre.png",50,50);
+    // reFreshBtn->setParent(this);
+    // reFreshBtn->move(200,800);
+
+    // connect(reFreshBtn,&MyPushBtn::clicked,this,[=](){
+
+    // });*/
 
     m_p = p  ;
     m_top = tp  ;
@@ -32,12 +42,14 @@ ShopScene::ShopScene(Player * p , TopWidegt * tp , Money & m)
     //实例化
     shili();
     showCard1(this->randomGetCard());
+
     showCard2(this->randomGetCard());
     //————————————————————————————————
 
     //
 
 }
+
 
 
 void ShopScene::paintEvent(QPaintEvent *)
@@ -67,30 +79,33 @@ void ShopScene::shili()
     cardInk->hide();
     allCards.push_back(cardInk);
 
-    this->cardRecover = new Card(1,":/MainWindowScene/card/recover.png") ;
+    this->cardRecover = new Card(2,":/MainWindowScene/card/recover.png") ;
     cardRecover->setParent(this);
     cardRecover->hide();
     allCards.push_back(cardRecover);
 
-    this->cardPlus1 = new Card(1,":/MainWindowScene/card/plus1.png") ;
+    this->cardPlus1 = new Card(3,":/MainWindowScene/card/plus1.png") ;
     cardPlus1->setParent(this);
     cardPlus1->hide();
     allCards.push_back(cardPlus1);
 
-    this->cardplus4 = new Card(2,":/MainWindowScene/card/plus4.png") ;
+    this->cardplus4 = new Card(4,":/MainWindowScene/card/plus4.png") ;
     cardplus4->setParent(this);
     cardplus4->hide();
     allCards.push_back(cardplus4);
 
-    this->cardLaser = new Card(2,":/MainWindowScene/card/laser.png") ;
+    this->cardLaser = new Card(5,":/MainWindowScene/card/laser.png") ;
     cardLaser->setParent(this);
     cardLaser->hide();
     allCards.push_back(cardLaser);
 
-    this->cardDerive = new Card(5,":/MainWindowScene/card/derive.png") ;
+    this->cardDerive = new Card(6,":/MainWindowScene/card/derive.png") ;
     cardDerive->setParent(this);
     cardDerive->hide();
     allCards.push_back(cardDerive);
+
+    //_______________________________
+
 }
 
 
@@ -101,31 +116,37 @@ void ShopScene::showCard1(int x)
     {
         allCards[0]->show();
         allCards[0]->move(200,200);
+        allCards[0]->raise();
     }
     else if( x>= 22 && x <=42)
     {
         allCards[1]->show();
         allCards[1]->move(200,200);
+        allCards[1]->raise();
     }
     else if( x>= 43 && x <=63)
     {
         allCards[2]->show();
         allCards[2]->move(200,200);
+        allCards[2]->raise();
     }
     else if( x>= 64 && x <=76)
     {
         allCards[3]->show();
         allCards[3]->move(200,200);
+        allCards[3]->raise();
     }
     else if( x>= 77 && x <=90)
     {
         allCards[4]->show();
         allCards[4]->move(200,200);
+        allCards[4]->raise();
     }
     else if( x>= 91 && x <=100)
     {
         allCards[5]->show();
         allCards[5]->move(200,200);
+        allCards[5]->raise();
     }
     buy1 = new MyPushBtn(":/MainWindowScene/card/buyBtn1.png",":/MainWindowScene/card/pressedBuyBtn1.png",250,55);
     buy1->setParent(this);
@@ -133,10 +154,13 @@ void ShopScene::showCard1(int x)
 
     if( x>=1 && x <= 21 )
     {
+
         connect(buy1,&MyPushBtn::clicked,this,[=](){
-            if(m_m->currentMoney >= 10)
+            if(m_m->currentMoney >= 10 )
             {
-                this->haveCards.push_back(allCards[0]);
+                this->haveCards->push_back(allCards[0]);
+                allCards[0]->hide();
+                buy1->setEnabled(false);
                 m_m->currentMoney -= 10 ;
                 m_m->cl();
                 m_m->reFreshImg(m_m->currentMoney);
@@ -149,7 +173,9 @@ void ShopScene::showCard1(int x)
         connect(buy1,&MyPushBtn::clicked,this,[=](){
             if(m_m->currentMoney >= 10)
             {
-                this->haveCards.push_back(allCards[1]);
+                this->haveCards->push_back(allCards[1]);
+                allCards[1]->hide();
+                 buy1->setEnabled(false);
                 m_m->currentMoney -= 10 ;
                 m_m->cl();
                 m_m->reFreshImg(m_m->currentMoney);
@@ -162,7 +188,9 @@ void ShopScene::showCard1(int x)
         connect(buy1,&MyPushBtn::clicked,this,[=](){
             if(m_m->currentMoney >= 10)
             {
-                this->haveCards.push_back(allCards[2]);
+                this->haveCards->push_back(allCards[2]);
+                allCards[2]->hide();
+                 buy1->setEnabled(false);
                 m_m->currentMoney -= 10 ;
                 m_m->cl();
                 m_m->reFreshImg(m_m->currentMoney);
@@ -176,7 +204,9 @@ void ShopScene::showCard1(int x)
         connect(buy1,&MyPushBtn::clicked,this,[=](){
             if(m_m->currentMoney >= 20)
             {
-                this->haveCards.push_back(allCards[3]);
+                this->haveCards->push_back(allCards[3]);
+                allCards[3]->hide();
+                 buy1->setEnabled(false);
                 m_m->currentMoney -= 20 ;
                 m_m->cl();
                 m_m->reFreshImg(m_m->currentMoney);
@@ -189,7 +219,9 @@ void ShopScene::showCard1(int x)
         connect(buy1,&MyPushBtn::clicked,this,[=](){
             if(m_m->currentMoney >= 20)
             {
-                this->haveCards.push_back(allCards[4]);
+                this->haveCards->push_back(allCards[4]);
+                allCards[4]->hide();
+                 buy1->setEnabled(false);
                 m_m->currentMoney -= 20 ;
                 m_m->cl();
                 m_m->reFreshImg(m_m->currentMoney);
@@ -201,7 +233,9 @@ void ShopScene::showCard1(int x)
         connect(buy1,&MyPushBtn::clicked,this,[=](){
             if(m_m->currentMoney >= 60)
             {
-                this->haveCards.push_back(allCards[5]);
+                this->haveCards->push_back(allCards[5]);
+                allCards[5]->hide();
+                buy1->setEnabled(false);
                 m_m->currentMoney -= 60 ;
                 m_m->cl();
                 m_m->reFreshImg(m_m->currentMoney);
@@ -251,10 +285,12 @@ void ShopScene::showCard2(int x)
     buy2->move(520,490);
     if( x>=1 && x <= 21 )
     {
-        connect(buy1,&MyPushBtn::clicked,this,[=](){
+        connect(buy2,&MyPushBtn::clicked,this,[=](){
             if(m_m->currentMoney >= 10)
             {
-                this->haveCards.push_back(allCards[0]);
+                this->haveCards->push_back(allCards[0]);
+                allCards[0]->hide();
+                 buy2->setEnabled(false);
                 m_m->currentMoney -= 10 ;
                 m_m->cl();
                 m_m->reFreshImg(m_m->currentMoney);
@@ -267,7 +303,9 @@ void ShopScene::showCard2(int x)
         connect(buy2,&MyPushBtn::clicked,this,[=](){
             if(m_m->currentMoney >= 10)
             {
-                this->haveCards.push_back(allCards[1]);
+                this->haveCards->push_back(allCards[1]);
+                allCards[1]->hide();
+                 buy2->setEnabled(false);
                 m_m->currentMoney -= 10 ;
                 m_m->cl();
                 m_m->reFreshImg(m_m->currentMoney);
@@ -280,7 +318,9 @@ void ShopScene::showCard2(int x)
         connect(buy2,&MyPushBtn::clicked,this,[=](){
             if(m_m->currentMoney >= 10)
             {
-                this->haveCards.push_back(allCards[2]);
+                this->haveCards->push_back(allCards[2]);
+                allCards[2]->hide();
+                 buy2->setEnabled(false);
                 m_m->currentMoney -= 10 ;
                 m_m->cl();
                 m_m->reFreshImg(m_m->currentMoney);
@@ -292,7 +332,9 @@ void ShopScene::showCard2(int x)
         connect(buy2,&MyPushBtn::clicked,this,[=](){
             if(m_m->currentMoney >= 20)
             {
-                this->haveCards.push_back(allCards[3]);
+                this->haveCards->push_back(allCards[3]);
+                allCards[3]->hide();
+                 buy2->setEnabled(false);
                 m_m->currentMoney -= 20 ;
                 m_m->cl();
                 m_m->reFreshImg(m_m->currentMoney);
@@ -305,7 +347,9 @@ void ShopScene::showCard2(int x)
         connect(buy2,&MyPushBtn::clicked,this,[=](){
             if(m_m->currentMoney >= 20)
             {
-                this->haveCards.push_back(allCards[4]);
+                this->haveCards->push_back(allCards[4]);
+                allCards[4]->hide();
+                 buy2->setEnabled(false);
                 m_m->currentMoney -= 20 ;
                 m_m->cl();
                 m_m->reFreshImg(m_m->currentMoney);
@@ -317,13 +361,15 @@ void ShopScene::showCard2(int x)
         connect(buy2,&MyPushBtn::clicked,this,[=](){
             if(m_m->currentMoney >= 60)
             {
-                this->haveCards.push_back(allCards[5]);
+                this->haveCards->push_back(allCards[5]);
+                allCards[5]->hide();
+                 buy2->setEnabled(false);
                 m_m->currentMoney -= 60 ;
                 m_m->cl();
                 m_m->reFreshImg(m_m->currentMoney);
             }
         });
     }
-
 }
+
 
