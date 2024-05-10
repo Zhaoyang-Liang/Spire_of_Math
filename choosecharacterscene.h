@@ -2,7 +2,7 @@
 #define CHOOSECHARACTERSCENE_H
 
 #include <QMainWindow>
-
+#include <QSoundEffect>
 class ChooseCharacterScene : public QMainWindow
 {
     Q_OBJECT
@@ -11,8 +11,6 @@ public:
 
     //重写绘图事件
     void paintEvent(QPaintEvent *) ;
-
-
 
 
 

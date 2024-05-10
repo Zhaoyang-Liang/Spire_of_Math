@@ -9,8 +9,9 @@
 Money::Money(int cur ,QString Img)
 {
     setFixedSize(200,40);
+    s = Img ;
     this->currentMoney = cur ;
-    m.load(Img) ;
+    m.load(s) ;
     reFreshImg(currentMoney);
 
 

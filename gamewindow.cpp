@@ -11,6 +11,7 @@
 #include <QRandomGenerator>
 #include <QRandomGenerator>
 
+
 // GameWindow::GameWindow(QWidget *parent): QMainWindow{parent}
 // {
 
@@ -21,6 +22,10 @@
 
 GameWindow::GameWindow(Player * p,TopWidegt * tp,StationeryWidget * st)
 {
+
+    m_startSound = new QSound("",this) ;
+
+
     m_stiWidget = st ;
     m_player = p ;
     m_topWidget = tp ;
@@ -49,22 +54,33 @@ GameWindow::GameWindow(Player * p,TopWidegt * tp,StationeryWidget * st)
     m_done->setParent(this);
     m_done->move(780,370);
 
-    m_player->m_curMoney = 100 ;
+
 
     money.setParent(this);
     money.move(500,10);
 
-
+    money.currentMoney = 50 ;
 
 
     connect(m_done,&MyPushBtn::clicked,this,[=](){
-        m_ink->current = 3 ;
-        m_player->m_curMoney += 30 ;
-        m_ink->reFreshImg(m_ink->current);
-        money.cl();
-        money.reFreshImg(m_player->m_curMoney);
-        beAttackFuc( this->getRandomAction() );
-        isLose(m_player->m_currentLife);
+
+        if(m_done->isWin == false)
+        {
+            m_ink->current = 3 ;
+            // m_player->m_curMoney += 30 ;
+            money.currentMoney += 30 ;
+            m_ink->reFreshImg(m_ink->current);
+            money.cl();
+            // money.reFreshImg(m_player->m_curMoney);
+            money.reFreshImg(money.currentMoney) ;
+
+
+
+            beAttackFuc( this->getRandomAction() );
+            isLose(m_player->m_currentLife);
+
+        }
+
 
 
     }) ;
@@ -78,12 +94,15 @@ GameWindow::GameWindow(Player * p,TopWidegt * tp,StationeryWidget * st)
     m_ac = new AttackIcon(this->m_player);
     m_ac->setParent(this);
     m_ac->move(80,75);
-    m_ac->reFreshImg(m_player->m_attack);
+
 
     m_ac2 = new AttackIcon(this->m_player2) ;
     m_ac2->setParent(this);
     m_ac2->move(980,70);
-    m_ac2->reFreshImg(m_player2->m_attack);
+    // m_ac2->cl();
+    // m_ac2->reFreshImg(999);
+    // m_ac2->cl();
+    // m_ac2->reFreshImg(888);
 
     //出牌按钮
     dealt = new MyPushBtn(":/MainWindowScene/card/dealt.png",":/MainWindowScene/card/pressedDealt.png",100,70) ;
@@ -93,16 +112,20 @@ GameWindow::GameWindow(Player * p,TopWidegt * tp,StationeryWidget * st)
 
 
     connect(dealt,&MyPushBtn::clicked,this,[=](){
+
+
         for(int i = 0 ; i < m_curHaveCards.count() ; i++)
         {
-            if( m_curHaveCards[i]->flag == true && (m_ink->current >= m_curHaveCards[i]->inkPrice) )
+            if( m_curHaveCards[i]->flag == true && (m_ink->current >= m_curHaveCards[i]->inkPrice)  && dealt->isWin == false)
             {
+
                 m_curHaveCards[i]->move(400,115);
                 QTimer::singleShot(500,this,[=](){ //执行的函数体
                     this->chuPaiPanDuan( m_curHaveCards[i]->m_bianHao );
                     m_curHaveCards[i]->close();
                     m_curHaveCards.remove(i);
                     reFreshHandsCardsShow();
+                    QSound::play(":/MainWindowScene/soud/dealt.wav") ;
                 });
                 break;
 
@@ -126,15 +149,85 @@ GameWindow::GameWindow(Player * p,TopWidegt * tp,StationeryWidget * st)
     m_shop->move(790,0);
 
 
+    m_lifeBtn = new MyPushBtn(":/MainWindowScene/gameWindow/lifeYao.png" , ":/MainWindowScene/gameWindow/pressedLifeYao.png", 40,40);
+    m_lifeBtn->setParent(this);
+    m_attackBtn = new MyPushBtn(":/MainWindowScene/gameWindow/attackYao.png" , ":/MainWindowScene/gameWindow/pressedAttackYao.png", 40,40);
+    m_attackBtn->setParent(this);
+    m_attackBtn->move(680,5);
+    m_lifeBtn->move(720,5);
+
+
+    //生命药水
+    connect(m_lifeBtn,&MyPushBtn::clicked,this,[=](){
+        if(money.currentMoney >= 40)
+            {
+            money.currentMoney -= 40 ;
+            QSound::play(":/MainWindowScene/soud/money.wav");
+            money.cl();
+            money.reFreshImg(money.currentMoney);
+
+            m_player->m_currentLife = m_player->m_life ;
+            this->m_topWidget->m_heart->reFreshImg(m_player->m_currentLife,m_player->m_life);
+        }
+    });
+
+
+    //攻击药
+    connect(m_attackBtn,&MyPushBtn::clicked,this,[=](){
+        if(money.currentMoney >= 30)
+        {
+
+            // m_player->m_attack += 10 ;
+            // m_player2->m_attack *= 0.9 ;
+
+            // int a = m_player2->m_attack ;
+            // int b = m_player->m_attack ;
+
+            // qDebug()<<a << " "<< b ;
+
+            if( (m_player2->m_currentLife/2 ) > 0)
+            {
+                m_player2->m_currentLife /= 2  ;
+                this->h2->reFreshImg(m_player2->m_currentLife,m_player2->m_life);
+                this->isWin(m_player2->m_currentLife);
+
+            }
+
+            QSound::play(":/MainWindowScene/soud/money.wav");
+
+            // m_ac->cl();
+            // m_ac2->cl();
+            money.currentMoney -= 30 ;
+
+            money.cl();
+            money.reFreshImg(money.currentMoney);
+
+        }
+
+        // m_ac->reFreshImg(m_player->m_attack );
+        // m_ac2->reFreshImg(m_player2->m_attack);
+        // m_ac->raise();
+        // m_ac2->raise();
+
+    });
+
+
     //创建SHopScene
     m_shopScene = new ShopScene( this->m_player, this->m_topWidget, this->money , this->m_curHaveCards );
 
     connect(m_shop,&MyPushBtn::clicked,this,[=](){
-        this->hide();
-        m_topWidget->setParent(m_shopScene);
-        money.setParent(m_shopScene);
-        m_shopScene->setGeometry(this->geometry() );
-        m_shopScene->show();
+
+        if(m_shop->isWin == false)
+        {
+            this->hide();
+            m_topWidget->setParent(m_shopScene);
+            money.setParent(m_shopScene);
+            m_shopScene->setGeometry(this->geometry() );
+            m_shopScene->show();
+        }
+
+
+
     });
 
     connect(m_shopScene,&ShopScene::ShopSceneBack,this,[=](){
@@ -144,6 +237,8 @@ GameWindow::GameWindow(Player * p,TopWidegt * tp,StationeryWidget * st)
 
         m_topWidget->setParent(this);
         m_shop->raise(); // 重新置于顶层上方
+        m_attackBtn->raise();
+        m_lifeBtn->raise();
         backBtn->raise();
         money.setParent(this);
         this->setGeometry(m_shopScene->geometry());
@@ -344,12 +439,10 @@ void GameWindow::isWin(int x)
 {
     if(x == 0)
     {
+        this->m_shop->isWin = true ;
+        this->m_done->isWin = true ;
+        this->dealt->isWin = true ;
         vi->show();
-        // this->m_curCardsBtn->setEnabled(false);
-        // this->m_shop->setEnabled(false);
-        // this-> m_curCardsBtn->setEnabled(false);
-        // this->m_done->setEnabled(false);
-        // this->dealt->setEnabled(false);
     }
 }
 void GameWindow::isLose(int x)
@@ -357,11 +450,9 @@ void GameWindow::isLose(int x)
     if(x == 0)
     {
         lo->show();
-        // this->m_curCardsBtn->setEnabled(false);
-        // this->m_shop->setEnabled(false);
-        // this-> m_curCardsBtn->setEnabled(false);
-        // this->m_done ->setEnabled(false);
-        // this->dealt ->setEnabled(false);
+        this->m_shop->isWin = true ;
+        this->m_done->isWin = true ;
+        this->dealt->isWin = true ;
     }
 
 }

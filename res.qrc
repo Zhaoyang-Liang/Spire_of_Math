@@ -87,5 +87,35 @@
         <file>stationery/nextBtn2.png</file>
         <file>stationery/pressedNext2.png</file>
         <file>pl/songhao.png</file>
+        <file>chouxiangren/08.png</file>
+        <file>chouxiangren/bobo.png</file>
+        <file>chouxiangren/caiju.png</file>
+        <file>chouxiangren/chenz.png</file>
+        <file>chouxiangren/chouxiangren.png</file>
+        <file>chouxiangren/feiyangyang.png</file>
+        <file>chouxiangren/IMG_0570 3.jpg</file>
+        <file>chouxiangren/kun.png</file>
+        <file>chouxiangren/lant.png</file>
+        <file>chouxiangren/laoda.png</file>
+        <file>chouxiangren/laohuo.png</file>
+        <file>chouxiangren/majia.png</file>
+        <file>chouxiangren/meixi.png</file>
+        <file>chouxiangren/menjiang.png</file>
+        <file>chouxiangren/ouhaoyou.png</file>
+        <file>chouxiangren/peter.png</file>
+        <file>chouxiangren/tingquan.png</file>
+        <file>chouxiangren/yunuwuga.png</file>
+        <file>soud/money.wav</file>
+        <file>soud/choose.wav</file>
+        <file>soud/dealt.wav</file>
+        <file>stationery/intro.png</file>
+        <file>stationery/pressedIntro.png</file>
+        <file>res/inroBack.png</file>
+        <file>gameWindow/attackYao.png</file>
+        <file>gameWindow/lifeYao.png</file>
+        <file>gameWindow/pressedAttackYao.png</file>
+        <file>gameWindow/pressedLifeYao.png</file>
+        <file>pl/liyusen.png</file>
+        <file>res/MainBack.png</file>
     </qresource>
 </RCC>

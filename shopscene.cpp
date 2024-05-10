@@ -3,7 +3,7 @@
 #include <QPainter>
 #include <QRandomGenerator>
 #include <QVector>
-
+#include <QSound>
 QVector<Card *> haveCards;
 
 ShopScene::ShopScene(Player * p , TopWidegt * tp , Money & m , QVector<Card*> & v )
@@ -63,6 +63,10 @@ void ShopScene::paintEvent(QPaintEvent *)
     pix.load(":/MainWindowScene/card/shopBack.png") ;
     pix = pix.scaled(this->width()*0.66 , this->height() *0.66, Qt::KeepAspectRatio , Qt::SmoothTransformation) ;
     painter.drawPixmap(125,107,pix);
+
+    pix.load(":/MainWindowScene/pl/liyusen.png") ;
+    pix = pix.scaled(this->width()*0.4 , this->height() *0.4, Qt::KeepAspectRatio , Qt::SmoothTransformation) ;
+    painter.drawPixmap(780,400,pix);
 
 
 }
@@ -164,6 +168,10 @@ void ShopScene::showCard1(int x)
                 m_m->currentMoney -= 10 ;
                 m_m->cl();
                 m_m->reFreshImg(m_m->currentMoney);
+
+                QSound::play(":/MainWindowScene/soud/money.wav");
+
+
             }
         });
     }
@@ -179,6 +187,10 @@ void ShopScene::showCard1(int x)
                 m_m->currentMoney -= 10 ;
                 m_m->cl();
                 m_m->reFreshImg(m_m->currentMoney);
+
+                QSound::play(":/MainWindowScene/soud/money.wav");
+
+
             }
 
         });
@@ -194,6 +206,10 @@ void ShopScene::showCard1(int x)
                 m_m->currentMoney -= 10 ;
                 m_m->cl();
                 m_m->reFreshImg(m_m->currentMoney);
+
+                QSound::play(":/MainWindowScene/soud/money.wav");
+
+
             }
 
 
@@ -210,6 +226,11 @@ void ShopScene::showCard1(int x)
                 m_m->currentMoney -= 20 ;
                 m_m->cl();
                 m_m->reFreshImg(m_m->currentMoney);
+
+                QSound::play(":/MainWindowScene/soud/money.wav");
+
+
+
             }
         });
     }
@@ -225,6 +246,10 @@ void ShopScene::showCard1(int x)
                 m_m->currentMoney -= 20 ;
                 m_m->cl();
                 m_m->reFreshImg(m_m->currentMoney);
+
+                QSound::play(":/MainWindowScene/soud/money.wav");
+
+
             }
         });
     }
@@ -239,6 +264,10 @@ void ShopScene::showCard1(int x)
                 m_m->currentMoney -= 60 ;
                 m_m->cl();
                 m_m->reFreshImg(m_m->currentMoney);
+
+                QSound::play(":/MainWindowScene/soud/money.wav");
+
+
             }
         });
     }
@@ -288,12 +317,15 @@ void ShopScene::showCard2(int x)
         connect(buy2,&MyPushBtn::clicked,this,[=](){
             if(m_m->currentMoney >= 10)
             {
+                QSound::play(":/MainWindowScene/soud/money.wav");
+
                 this->haveCards->push_back(allCards[0]);
                 allCards[0]->hide();
                  buy2->setEnabled(false);
                 m_m->currentMoney -= 10 ;
                 m_m->cl();
                 m_m->reFreshImg(m_m->currentMoney);
+
             }
         });
     }
@@ -303,12 +335,17 @@ void ShopScene::showCard2(int x)
         connect(buy2,&MyPushBtn::clicked,this,[=](){
             if(m_m->currentMoney >= 10)
             {
+                QSound::play(":/MainWindowScene/soud/money.wav");
+
                 this->haveCards->push_back(allCards[1]);
                 allCards[1]->hide();
                  buy2->setEnabled(false);
                 m_m->currentMoney -= 10 ;
                 m_m->cl();
                 m_m->reFreshImg(m_m->currentMoney);
+
+
+
             }
 
         });
@@ -324,6 +361,9 @@ void ShopScene::showCard2(int x)
                 m_m->currentMoney -= 10 ;
                 m_m->cl();
                 m_m->reFreshImg(m_m->currentMoney);
+                QSound::play(":/MainWindowScene/soud/money.wav");
+
+
             }
         });
     }
@@ -338,6 +378,9 @@ void ShopScene::showCard2(int x)
                 m_m->currentMoney -= 20 ;
                 m_m->cl();
                 m_m->reFreshImg(m_m->currentMoney);
+                QSound::play(":/MainWindowScene/soud/money.wav");
+
+
             }
         });
     }
@@ -353,6 +396,9 @@ void ShopScene::showCard2(int x)
                 m_m->currentMoney -= 20 ;
                 m_m->cl();
                 m_m->reFreshImg(m_m->currentMoney);
+                QSound::play(":/MainWindowScene/soud/money.wav");
+
+
             }
         });
     }
@@ -367,6 +413,8 @@ void ShopScene::showCard2(int x)
                 m_m->currentMoney -= 60 ;
                 m_m->cl();
                 m_m->reFreshImg(m_m->currentMoney);
+                QSound::play(":/MainWindowScene/soud/money.wav");
+
             }
         });
     }

@@ -17,6 +17,7 @@ public:
     void mousePressEvent(QMouseEvent *e);
     void mouseReleaseEvent(QMouseEvent *e);
     int w , h;
+    bool isWin ;
 
 signals:
 };

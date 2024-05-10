@@ -28,7 +28,6 @@ public:
     //买下来的
     QVector<Card*> * haveCards ;
 
-
     Card* cardInk;
     Card* cardRecover ;
     Card* cardPlus1 ;
@@ -36,11 +35,8 @@ public:
     Card* cardLaser ;
     Card* cardDerive ;
 
-
-
     MyPushBtn* buy1 ;
     MyPushBtn* buy2 ;
-
 
     void showCard1(int x);
     void showCard2(int x);

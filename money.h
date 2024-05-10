@@ -17,7 +17,7 @@ public:
     void paintEvent(QPaintEvent *) ;
 
     QLabel * l = new QLabel(this) ;
-
+    QString s ;
     void cl();
 
     void reFreshImg(int cur) ;

@@ -12,12 +12,6 @@ public:
 
 
 
-
-
-
-
-
-
     int arr[100] ;
 
 signals:

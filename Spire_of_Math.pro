@@ -1,4 +1,4 @@
-QT       += core gui
+QT       += core gui multimedia
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -25,6 +25,7 @@ SOURCES += \
     money.cpp \
     mypushbtn.cpp \
     player.cpp \
+    seestawindow.cpp \
     shopscene.cpp \
     stationerywidget.cpp \
     topwidegt.cpp \
@@ -46,6 +47,7 @@ HEADERS += \
     money.h \
     mypushbtn.h \
     player.h \
+    seestawindow.h \
     shopscene.h \
     stationerywidget.h \
     topwidegt.h \

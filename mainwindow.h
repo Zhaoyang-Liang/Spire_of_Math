@@ -7,7 +7,8 @@
 #include <QPaintEvent>
 #include "choosecharacterscene.h"
 #include <QPainter>
-
+#include <QSoundEffect>
+#include "seestawindow.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -25,9 +26,15 @@ public:
 
     MyPushBtn * startBtn ;
 
+    MyPushBtn * stationeryBtn ;
+
     void paintEvent(QPaintEvent *);
 
     ChooseCharacterScene * chooseCharacterScene;
+    SeeStaWindow * seeStaWindow ;
+
+
+
 
 
 private:

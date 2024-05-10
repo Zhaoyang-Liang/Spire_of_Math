@@ -22,14 +22,14 @@ void AttackIcon::paintEvent(QPaintEvent *)
 
 void AttackIcon::reFreshImg(int cur)
 {
-    l = new QLabel(this) ;
     m_cur = cur ;
+
+    l = new QLabel(this) ;
     QFont font = l->font() ;
     font.setBold(true);
-    l->setStyleSheet("color:grey");
-
+    l->setStyleSheet("color:black");
     l->move(40,10);
-    l->setText(QString::number( m_cur) );
+    l->setText( QString::number( cur) );
 }
 
 void AttackIcon::cl()

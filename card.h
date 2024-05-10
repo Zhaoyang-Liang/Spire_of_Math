@@ -18,6 +18,7 @@ public:
     void setSelected(bool b) ;
 
 
+
     bool flag  ;
     QString m_type ;
     int m_rarity;

@@ -7,7 +7,8 @@
 #include <QTimer>
 #include "checkcharacter.h"
 #include "choosecharacterwindow2.h"
-
+#include <QSound>
+#include <QSoundEffect>
 ChooseCharacterScene::ChooseCharacterScene(QWidget *parent): QMainWindow{parent}
 {
     this->setFixedSize(1080,720);

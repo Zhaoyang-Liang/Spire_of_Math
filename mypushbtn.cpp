@@ -12,6 +12,8 @@ MyPushBtn::MyPushBtn(QString normalImg , QString pressImg , int w, int h)
     this->pressImgPath = pressImg ;
     QPixmap pix ;
 
+    isWin = false ;
+
     bool ret = pix.load(normalImg) ;
     if(!ret)
     {
@@ -34,7 +36,7 @@ MyPushBtn::MyPushBtn(QString normalImg , QString pressImg , int w, int h)
 
 void MyPushBtn::mousePressEvent(QMouseEvent *e) // 这两个mousepressEvent和releaseEvent用于完成照片切换
 {
-    if(this->pressImgPath != "")
+    if(this->pressImgPath != "" )
     {
         QPixmap pix ;
         bool ret = pix.load(pressImgPath) ;
@@ -59,7 +61,7 @@ void MyPushBtn::mousePressEvent(QMouseEvent *e) // 这两个mousepressEvent和re
 
 void MyPushBtn::mouseReleaseEvent(QMouseEvent *e)
 {
-    if(this->normalImgPath != "")
+    if(this->normalImgPath != ""  )
     {
         QPixmap pix ;
         bool ret = pix.load(normalImgPath) ;
