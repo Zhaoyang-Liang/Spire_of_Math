@@ -34,10 +34,8 @@ void Heart::paintEvent(QPaintEvent *)//也就是我需要保证每个图片的�
 
     //到时候接受扣血信号：：
     QBrush brush;
-    // brush.setColor(QColor(Qt::black));
     brush.setStyle(Qt::NoBrush);
     QPainter painter1(this)  ;
-    // painter1.setPen(Qt::black);
     painter1.setBrush(brush);
     painter1.drawRect(50,10,140,20);
 

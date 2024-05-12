@@ -74,8 +74,6 @@ GameWindow::GameWindow(Player * p,TopWidegt * tp,StationeryWidget * st)
             // money.reFreshImg(m_player->m_curMoney);
             money.reFreshImg(money.currentMoney) ;
 
-
-
             beAttackFuc( this->getRandomAction() );
             isLose(m_player->m_currentLife);
 

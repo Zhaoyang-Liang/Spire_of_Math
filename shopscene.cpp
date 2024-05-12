@@ -6,7 +6,7 @@
 #include <QSound>
 QVector<Card *> haveCards;
 
-ShopScene::ShopScene(Player * p , TopWidegt * tp , Money & m , QVector<Card*> & v )
+ShopScene::ShopScene(Player * p , TopWidegt * tp , Money & m , QVector<Card*> & v)
 {
 
     this->setFixedSize(1080,720);
@@ -277,36 +277,7 @@ void ShopScene::showCard1(int x)
 
 void ShopScene::showCard2(int x)
 {
-    if( x>=1 && x <= 21)
-    {
-        allCards[0]->show();
-        allCards[0]->move(565,200);
-    }
-    else if( x>= 22 && x <=42)
-    {
-        allCards[1]->show();
-        allCards[1]->move(565,200);
-    }
-    else if( x>= 43 && x <=63)
-    {
-        allCards[2]->show();
-        allCards[2]->move(565,200);
-    }
-    else if( x>= 64 && x <=76)
-    {
-        allCards[3]->show();
-        allCards[3]->move(565,200);
-    }
-    else if( x>= 77 && x <=90)
-    {
-        allCards[4]->show();
-        allCards[4]->move(565,200);
-    }
-    else if( x>= 91 && x <=100)
-    {
-        allCards[5]->show();
-        allCards[5]->move(565,200);
-    }
+s
 
     buy2 = new MyPushBtn(":/MainWindowScene/card/buyBtn2.png",":/MainWindowScene/card/pressedBuyBtn2.png",270,75);
 
